@@ -1,0 +1,26 @@
+﻿@model List<BTicTacToe.Models.Question>
+
+@{
+    ViewData["Title"] = "Тест ASP.NET";
+}
+
+<h2>Тест з ASP.NET</h2>
+
+<form method="post">
+    @for (int i = 0; i < Model.Count; i++)
+    {
+        <div style="margin-bottom:20px">
+            <p><strong>@(i + 1). @Model[i].Text</strong></p>
+            @for (int j = 0; j < Model[i].Options.Length; j++)
+            {
+                <label>
+                    <input type="radio" name="answers[@i].SelectedIndex" value="@j" required />
+                    @Model[i].Options[j]
+                </label>
+
+                <br />
+            }
+        </div>
+    }
+    <button type="submit">Перевірити</button>
+</form>
