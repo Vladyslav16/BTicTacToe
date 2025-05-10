@@ -1,0 +1,33 @@
+@model BTicTacToe.Models.UserInfo
+
+@{
+    ViewBag.Title = "Реєстрація";
+}
+
+<h2 class="text-center">Реєстрація</h2>
+
+<div class="d-flex justify-content-center">
+    <form method="post" style="width: 300px;">
+        <div class="mb-3">
+            <label>Ім’я:</label>
+            <input asp-for="FirstName" class="form-control" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label>Email:</label>
+            <input asp-for="Email" class="form-control" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-primary">Почати тест</button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
